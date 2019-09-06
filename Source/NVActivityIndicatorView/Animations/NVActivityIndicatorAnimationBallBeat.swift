@@ -30,26 +30,26 @@ import UIKit
 class NVActivityIndicatorAnimationBallBeat: NVActivityIndicatorAnimationDelegate {
 
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
-        let circleSpacing: CGFloat = 2
+        let circleSpacing: CGFloat = 8
         let circleSize = (size.width - circleSpacing * 2) / 3
         let x = (layer.bounds.size.width - size.width) / 2
         let y = (layer.bounds.size.height - circleSize) / 2
-        let duration: CFTimeInterval = 0.7
+        let duration: CFTimeInterval = 0.8
         let beginTime = CACurrentMediaTime()
-        let beginTimes = [0.35, 0, 0.35]
+        let beginTimes = [0, 0.1, 0.2]
 
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
 
         scaleAnimation.keyTimes = [0, 0.5, 1]
-        scaleAnimation.values = [1, 0.75, 1]
+        scaleAnimation.values = [1, 1, 1]
         scaleAnimation.duration = duration
 
         // Opacity animation
         let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 
-        opacityAnimation.keyTimes = [0, 0.5, 1]
-        opacityAnimation.values = [1, 0.2, 1]
+        opacityAnimation.keyTimes = [0, 0.25, 0.5, 1]
+        opacityAnimation.values = [0.3, 0.8, 0.3, 0.3]
         opacityAnimation.duration = duration
 
         // Aniamtion
